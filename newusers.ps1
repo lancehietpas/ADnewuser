@@ -1,0 +1,2 @@
+﻿Import-Module Active Directory 
+import-csv testusers.csv | % {New-ADUser -SamAccountName $_.SamAccountName -GivenName $_.GivenName -Surname $_.Surname -EmailAddress $_.EmailAddress -Organization $_.Organization -Department $_.Department -AccountPassword (ConvertTo-SecureString $_.Password -AsPlainText -force) -DisplayName $_.DisplayName -Name $_.DisplayName -Enabled $true}
